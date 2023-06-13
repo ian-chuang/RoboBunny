@@ -12,6 +12,7 @@ public class LevelController : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
+            FindObjectOfType<SoundEffects>().PlayLevelComplete();
             CompleteLevel(); 
         }
     }

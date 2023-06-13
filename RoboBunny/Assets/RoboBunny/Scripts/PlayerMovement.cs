@@ -97,6 +97,14 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         cameraController = Camera.main.GetComponent<CameraController>();
         currentHealth = maxHealth;
+<<<<<<< HEAD
+=======
+
+        // For displaying UI
+        firstHeart.SetActive(true);
+        secondHeart.SetActive(true);
+        thirdHeart.SetActive(true);
+>>>>>>> main
     }
 
     private void Update()
@@ -163,7 +171,27 @@ public class PlayerController : MonoBehaviour
 
     void Movement()
     {
+<<<<<<< HEAD
         // What actually moves the player
+=======
+        if (isWallJumping || isDashing || isHit)
+        {
+            return;
+        }
+
+        //for Animation
+        if (XDirectionalInput != 0)
+        {
+            isMoving = true;
+            FindObjectOfType<SoundEffects>().PlayRun();
+        }
+        else
+        {
+            isMoving = false;
+        }
+
+        //for movement
+>>>>>>> main
         rb.velocity = new Vector2(XDirectionalInput * moveSpeed, rb.velocity.y);
         
         // Update direction player is facing
@@ -222,6 +250,8 @@ public class PlayerController : MonoBehaviour
             
             lastJumpTime = 0;
 
+            FindObjectOfType<SoundEffects>().PlayJump();
+        
             anim.SetTrigger("Jump");
             dust.Play();
         }
@@ -231,6 +261,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             extraJumps--;
 
+<<<<<<< HEAD
             anim.SetTrigger("Jump");
             tr.emitting = true;
         }
@@ -253,6 +284,10 @@ public class PlayerController : MonoBehaviour
     {
         if (pogoInput)
         {
+=======
+            FindObjectOfType<SoundEffects>().PlayJump();
+
+>>>>>>> main
             anim.SetTrigger("DoubleJump");
             StartCoroutine(PogoRoutine());
         }
@@ -285,18 +320,97 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator PogoRoutine()
     {
+<<<<<<< HEAD
         pogoActive = true;
         yield return new WaitForSeconds(pogoTime);
         pogoActive = false;
+=======
+        if (isDashing || isHit)
+        {
+            return;
+        }
+
+        if (isTouchingWall && !grounded)
+        {
+            isWallSliding = true;
+        }
+        else
+        {
+            isWallSliding = false;
+        }
+
+        if (isWallSliding)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlideSpeed, float.MaxValue));
+        }
+    }
+    void WallJump()
+    {
+        if (isDashing || isHit)
+        {
+            return;
+        }
+
+        if (isWallSliding)
+        {
+            isWallJumping = false;
+            CancelInvoke(nameof(StopWallJumping));
+        }
+
+        if (jumpInput && isWallSliding)
+        {
+            isWallJumping = true;
+            isWallSliding = false;
+            rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+
+            FindObjectOfType<SoundEffects>().PlayJump();
+
+            anim.SetTrigger("Jump");
+
+            Flip();
+
+            Invoke(nameof(StopWallJumping), wallJumpingDuration);
+        }
+>>>>>>> main
     }
 
     void PogoJump()
     {
+<<<<<<< HEAD
         tr.emitting = true;
         cameraController.FreezeScreen();
         rb.velocity = new Vector2(rb.velocity.x, pogoForce);
         extraJumps = extraJumpsValue;
         canDash = true;
+=======
+        isWallJumping = false;
+    }
+
+    void Dash()
+    {
+        if (isHit)
+        {
+            return;
+        }
+
+        if (dashInput && canDash && finishDashCooldown)
+        {
+            if (isWallSliding ||
+                (XDirectionalInput < 0 && facingRight) || 
+                (XDirectionalInput > 0 && !facingRight))
+            {
+                Flip();
+            }
+
+            isWallSliding = false;
+            isWallJumping = false;
+            CancelInvoke(nameof(StopWallJumping));
+
+            FindObjectOfType<SoundEffects>().PlayDash();
+
+            StartCoroutine(DashRoutine());
+        }
+>>>>>>> main
     }
 
     private IEnumerator DashRoutine()
@@ -320,6 +434,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!finishHitCooldown)
         {
+<<<<<<< HEAD
             return;
         }
         
@@ -335,6 +450,36 @@ public class PlayerController : MonoBehaviour
         else
         {
             StartCoroutine(HitRoutine());
+=======
+            FindObjectOfType<SoundEffects>().PlayHit();
+
+            isWallSliding = false;
+            isWallJumping = false;
+            CancelInvoke(nameof(StopWallJumping));
+
+            currentHealth--;
+
+            if (currentHealth <= 0)
+            {
+                firstHeart.SetActive(false);
+                enabled = false;
+                isDead = true;
+                FindObjectOfType<SoundEffects>().PlayFalling();
+                StartCoroutine(DeathRoutine());
+            }
+            else
+            {
+                if (currentHealth == 2)
+                {
+                    thirdHeart.SetActive(false);
+                }
+                else if (currentHealth == 1)
+                {
+                    secondHeart.SetActive(false);
+                }
+                StartCoroutine(HitRoutine());
+            }
+>>>>>>> main
         }
 
         if (grounded)
