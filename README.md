@@ -49,16 +49,15 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Joyce - User Interface
 
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
 *Goals* - My main goal for the user interface was to make sure that everything in the game matched in terms of theme. I created UI components that matched the assets and vibe of the game, from the color palette to the pixelation. I didn't want things like the main menu and the buttons to take the player away from the game, and I felt that a matching user interface was the best way to keep a player immersed in the game. 
 
 *Health Bar* - The main component of the heads-up display is the health meter. Our team decided that it would be best to give the player three lives to give them some leeway when navigating through each level. Every time the player is injured, they will lose one of the three lives, which are represented by hearts. To show the user how many hearts they were missing, I wanted to include some transparent hearts that would replace a lost heart. This way the user would always remember how many lives they started out with.
 
-![HealthBar](https://github.com/ian-chuang/RoboFroggy/blob/main/media/HealthBar.png)
+![HealthBar](https://github.com/ian-chuang/RoboFroggy/blob/joyce/media/HealthBar.png)
 
 *Main Menu* - The main menu, or start page, is the first thing a user sees, so it is very important to create an eye-catching first impression. The start page is comprised of the main menu as well as decorative sneak peeks for the user to see what is coming next if they choose to click Play. The pixelated UI asset can be seen flanked by two Froggy characters. The background is the tutorial terrain background, which I chose because I didn't want to give to much away to the player.
 
-![StartPage](https://github.com/ian-chuang/RoboFroggy/blob/main/media/StartPage.png)
+![StartPage](https://github.com/ian-chuang/RoboFroggy/blob/joyce/media/StartPage.png)
 
 
 ## Movement/Physics
