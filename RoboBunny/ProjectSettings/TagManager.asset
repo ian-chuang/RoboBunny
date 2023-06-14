@@ -46,6 +46,9 @@ TagManager:
   - name: Background
     uniqueID: 2136470109
     locked: 0
+  - name: SemiBackground
+    uniqueID: 2923496949
+    locked: 0
   - name: Terrain
     uniqueID: 3965580225
     locked: 0
