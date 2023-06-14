@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     [Header("For PogoJumping")]
     [SerializeField] float pogoForce = 18f;
     [SerializeField] private Vector2 pogoCheckSize;
+    [SerializeField] private Transform pogoCheckPoint;
     [SerializeField] private LayerMask pogoAble;
     [SerializeField] private float pogoTime = 0.2f;
     private bool pogoActive; 
@@ -231,7 +232,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             extraJumps--;
 
-            anim.SetTrigger("Jump");
+            anim.SetTrigger("DoubleJump");
             dust.Play();
         }
     }
@@ -253,11 +254,12 @@ public class PlayerController : MonoBehaviour
     {
         if (pogoInput)
         {
-            anim.SetTrigger("DoubleJump");
+            dust.Play();
+            // anim.SetTrigger("DoubleJump");
             StartCoroutine(PogoRoutine());
         }
 
-        if (pogoActive && Physics2D.OverlapBox(groundCheckPoint.position, pogoCheckSize, 0, pogoAble))
+        if (pogoActive && Physics2D.OverlapBox(pogoCheckPoint.position, pogoCheckSize, 0, pogoAble))
         {
             pogoActive = false;
             PogoJump();
@@ -416,13 +418,12 @@ public class PlayerController : MonoBehaviour
     }
     private void OnDrawGizmosSelected()
     {
+        Gizmos.color = new Color(1f, 0.92f, 0.016f, 0.5f);
+        Gizmos.DrawCube(pogoCheckPoint.position, pogoCheckSize);
         Gizmos.color = Color.blue;
         Gizmos.DrawCube(groundCheckPoint.position, groundCheckSize);
         Gizmos.color = Color.green;
         Gizmos.DrawCube(wallCheckPoint.position, wallCheckSize);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawCube(groundCheckPoint.position, pogoCheckSize);
-
     }
 
 }
