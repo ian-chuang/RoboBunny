@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4305f765fe9e7e94b8b22af01b33e21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 14
+  moveSpeed: 12
   dust: {fileID: 840788912405183721}
   jumpForce: 18
   extraJumpsValue: 1
@@ -231,7 +231,7 @@ MonoBehaviour:
   hitDuration: 0.75
   hitCooldown: 0.5
   frictionAmount: 0.35
-  deathDuration: 5
+  deathDuration: 1
   maxHealth: 3
   anim: {fileID: 6359425653458760171}
 --- !u!95 &6359425653458760171
@@ -294,8 +294,8 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2136470109
-  m_SortingLayer: -2
+  m_SortingLayerID: -329387071
+  m_SortingLayer: -1
   m_SortingOrder: -1
   m_Time: 0.15
   m_PreviewTimeScale: 1
