@@ -232,6 +232,7 @@ public class PlayerController : MonoBehaviour
         // Dashing
         if (dashInput && canDash && finishDashCooldown)
         {
+            FindObjectOfType<SoundEffects>().PlayDash();
             StartCoroutine(DashRoutine());
         }
         
@@ -270,6 +271,9 @@ public class PlayerController : MonoBehaviour
     {
         if (isWallSliding && jumpInput)
         {
+            // play jump sound
+            FindObjectOfType<SoundEffects>().PlayJump();
+
             // Perform wall jump
             // https://gist.github.com/bendux/b6d7745ad66b3d48ef197a9d261dc8f6
             StartCoroutine(WallJumpRoutine());
@@ -283,6 +287,9 @@ public class PlayerController : MonoBehaviour
             
             // flush jump buffer
             lastJumpTime = 0;
+
+            // play jump sound
+            FindObjectOfType<SoundEffects>().PlayJump();
 
             // play jump animation
             anim.SetTrigger("Jump");
@@ -301,6 +308,9 @@ public class PlayerController : MonoBehaviour
             // decrement number of extra jumps
             extraJumps--;
 
+            // play jump sound
+            FindObjectOfType<SoundEffects>().PlayJump();
+
             // play double jump animation
             anim.SetTrigger("DoubleJump");
 
@@ -315,6 +325,8 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(facingDirection * -1 * wallJumpingPower.x, wallJumpingPower.y);
         // disable wall sliding
         isWallSliding = false;
+        // play jump sound
+        FindObjectOfType<SoundEffects>().PlayJump();
         // play jump animation
         anim.SetTrigger("Jump");
         // set wall jump flag
@@ -333,6 +345,9 @@ public class PlayerController : MonoBehaviour
         if (pogoInput)
         {
             // pogo was pressed
+
+            // trigger jump sound
+            FindObjectOfType<SoundEffects>().PlayJump();
 
             // trigger animation
             anim.SetTrigger("DoubleJump");
@@ -454,6 +469,9 @@ public class PlayerController : MonoBehaviour
         cameraController.FreezeScreen();
         cameraController.ShakeScreen();
 
+        // hit sound
+        FindObjectOfType<SoundEffects>().PlayHit();
+
         // decrement health
         currentHealth--;
 
@@ -519,6 +537,8 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("Grounded", true);
         anim.SetBool("Dashing", false);
         anim.SetBool("Hit", false);
+        // trigger death sound effect
+        FindObjectOfType<SoundEffects>().PlayFalling();
         // trigger death animation
         anim.SetTrigger("Death");
         // wait for death duration
