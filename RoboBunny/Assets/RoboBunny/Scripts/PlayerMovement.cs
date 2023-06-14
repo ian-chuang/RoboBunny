@@ -232,7 +232,7 @@ public class PlayerController : MonoBehaviour
             extraJumps--;
 
             anim.SetTrigger("Jump");
-            tr.emitting = true;
+            dust.Play();
         }
     }
 
@@ -292,7 +292,7 @@ public class PlayerController : MonoBehaviour
 
     void PogoJump()
     {
-        tr.emitting = true;
+        // tr.emitting = true;
         cameraController.FreezeScreen();
         rb.velocity = new Vector2(rb.velocity.x, pogoForce);
         extraJumps = extraJumpsValue;
