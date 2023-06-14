@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour
     {
         // What actually moves the player
         rb.velocity = new Vector2(XDirectionalInput * moveSpeed, rb.velocity.y);
-        
+
         // Update direction player is facing
         if (XDirectionalInput < 0 && facingDirection == 1)
         {
@@ -301,6 +301,10 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator DashRoutine()
     {
+        if (grounded)
+        {
+            dust.Play();
+        }
         canDash = false;
         finishDashCooldown = false;
         isDashing = true;
