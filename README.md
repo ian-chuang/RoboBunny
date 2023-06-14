@@ -47,9 +47,19 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Describe the steps you took in your role as producer. Typical items include group scheduling mechanism, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, depedency/task tracking, Gantt charts, etc.), and repository management methodology.**
 
-## User Interface
+## Joyce - User Interface
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
+*Goals* - My main goal for the user interface was to make sure that everything in the game matched in terms of theme. I created UI components that matched the assets and vibe of the game, from the color palette to the pixelation. I didn't want things like the main menu and the buttons to take the player away from the game, and I felt that a matching user interface was the best way to keep a player immersed in the game. 
+
+*Health Bar* - The main component of the heads-up display is the health meter. Our team decided that it would be best to give the player three lives to give them some leeway when navigating through each level. Every time the player is injured, they will lose one of the three lives, which are represented by hearts. To show the user how many hearts they were missing, I wanted to include some transparent hearts that would replace a lost heart. This way the user would always remember how many lives they started out with.
+
+![HealthBar](https://github.com/ian-chuang/RoboFroggy/blob/main/media/HealthBar.png)
+
+*Main Menu* - The main menu, or start page, is the first thing a user sees, so it is very important to create an eye-catching first impression. The start page is comprised of the main menu as well as decorative sneak peeks for the user to see what is coming next if they choose to click Play. The pixelated UI asset can be seen flanked by two Froggy characters. The background is the tutorial terrain background, which I chose because I didn't want to give to much away to the player.
+
+![StartPage](https://github.com/ian-chuang/RoboFroggy/blob/main/media/StartPage.png)
+
 
 ## Movement/Physics
 
@@ -165,11 +175,15 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Cross-Platform
 
-**Describe the platforms you targeted for your game release. For each, describe the process and unique actions taken for each platform. What obstacles did you overcome? What was easier than expected?**
+**Describe the platforms you targeted for your game release . For each, describe the process and unique actions taken for each platform. What obstacles did you overcome? What was easier than expected?**
 
-## Audio
+## Joyce - Audio
 
-**List your assets including their sources and licenses.**
+*Theme Music* - The main theme for RoboFroggy is called "Music for Arcade Style Game" from [Pixabay](https://pixabay.com/music/video-games-music-for-arcade-style-game-146875/), a site for sharing stock images, videos, and music. The song's style is very upbeat and energetic to match the adventurous nature of the game, which subliminaly influences the user to move and react fast to complete each level. The theme music uses heavy synths to reflect the computerized and pixelized look of the game and has a simple tune to match the more elementary assets and background. Like the name promises, the song is perfect for an arcade-style game such as RoboFroggy. To create the best gameplay experience, the music plays from the beginning and loops with a minimal pause in between each play. There is a sound played to indicate the start and end of each level to indicate that gameplay has begun and that success has been reached, respectively. The licensing for the song is listed [here](https://pixabay.com/service/terms/), but in summary, it is able to be used for free and without crediting the artist.
+
+*Sound Effects* -All sound effects were sourced from Mixkit's collection of [free sound effects](https://mixkit.co/free-sound-effects). The most important sound effects were the jump and button sound effects, as they were used the most throughout creating the game and they indicate to the user that there is a reaction to their input. I felt that it is important to have a sound effect for a button click to show that the user's input was logged, especially since there was sometimes a lag in loading different scenes. The licensing for these SFX clips from Mixkit state that they "are royalty-free and can be used without attribution" for "commercial and personal projects".
+
+*Implementation* - To implement the music and sound effects, I referenced [this tutorial on YouTube](https://www.youtube.com/watch?v=JnbDxG04i7c). At first I attempted to mimic what was provided in the class exercises, but I ultimately decided that the implementation was too complicated for our needs. The tutorial provides a simple yet effective way to link certain movements and user inputs with the needed sounds.
 
 **Describe the implementation of your audio system.**
 
