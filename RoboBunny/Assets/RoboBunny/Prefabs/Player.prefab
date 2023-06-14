@@ -230,9 +230,11 @@ MonoBehaviour:
   hitKnockbackPower: {x: 5, y: 5}
   hitDuration: 0.75
   hitCooldown: 0.5
-  frictionAmount: 0.35
   deathDuration: 5
   maxHealth: 3
+  firstHeart: {fileID: 0}
+  secondHeart: {fileID: 0}
+  thirdHeart: {fileID: 0}
   anim: {fileID: 6359425653458760171}
 --- !u!95 &6359425653458760171
 Animator:
@@ -294,8 +296,8 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2136470109
-  m_SortingLayer: -2
+  m_SortingLayerID: -329387071
+  m_SortingLayer: -1
   m_SortingOrder: -1
   m_Time: 0.15
   m_PreviewTimeScale: 1

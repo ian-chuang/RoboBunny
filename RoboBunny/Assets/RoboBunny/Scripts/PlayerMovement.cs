@@ -312,10 +312,8 @@ public class PlayerController : MonoBehaviour
             FindObjectOfType<SoundEffects>().PlayJump();
 
             // play double jump animation
-            anim.SetTrigger("DoubleJump");
-
-            // show trail visual
-            tr.emitting = true;
+            anim.SetTrigger("Jump");
+            dust.Play();
         }
     }
 
@@ -415,10 +413,10 @@ public class PlayerController : MonoBehaviour
 
     void PogoJump()
     {
-        // show trail
-        tr.emitting = true;
         // camera controller effect
         cameraController.FreezeScreen();
+        cameraController.ShakeScreen();
+        dust.Play();
         // set upward velocity
         rb.velocity = new Vector2(rb.velocity.x, pogoForce);
         // reset # of extra jumps
