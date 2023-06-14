@@ -230,7 +230,7 @@ MonoBehaviour:
   hitKnockbackPower: {x: 5, y: 5}
   hitDuration: 0.75
   hitCooldown: 0.5
-  deathDuration: 5
+  deathDuration: 1
   maxHealth: 3
   firstHeart: {fileID: 0}
   secondHeart: {fileID: 0}
