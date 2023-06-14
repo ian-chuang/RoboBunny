@@ -23,25 +23,37 @@ public class SpikeBallShooterController : MonoBehaviour
     {
         if (target == null)
         {
+            // set target to be player
             target = GameObject.FindWithTag("Player").transform;
         }
+        // reset fire cooldown
         timeTillFire = fireCooldown;
+        // get collider
         shooterCollider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // decrement time to fire counter
         timeTillFire -= Time.deltaTime; 
 
+        // if within distance of player
         if (Vector2.Distance(transform.position, target.position) < activeDistance)
         {
+            // shooter is active
+
+            // rotate towards player
             RotateTowardsTarget();
 
+            // if time has passed then fire
             if (timeTillFire < 0)
             {
+                // fire spike ball
                 fireSpikeBall();
+                // trigger animation
                 anim.SetTrigger("Fire");
+                // start cooldown
                 timeTillFire = fireCooldown;
             }
         }
@@ -68,22 +80,26 @@ public class SpikeBallShooterController : MonoBehaviour
     {
         float offsetAngle = -90.0f;
 
-
+        // instantiate spikeball
         GameObject spikeBall = Instantiate(spikeBallPrefab, transform.position, transform.rotation);
 
+        // translate spikeball to very end of shooter
         spikeBall.transform.Translate(new Vector3(0, -shootOffset, 0));
 
+        // get spikeball rigid body
         Rigidbody2D spikeBallRB = spikeBall.GetComponent<Rigidbody2D>();
         // Create a rotation quaternion of 90 degrees around the Z-axis
         Quaternion rotation = Quaternion.Euler(0f, 0f, offsetAngle);
         // Rotate the vector by the specified rotation
         Vector3 offsetVector = rotation * transform.right;
+        // set spike ball velocity in direction of shooter
         spikeBallRB.velocity = offsetVector * projectileSpeed;
 
-
+        // get spikeballcontroller
         SpikeBallController spikeBallController = spikeBall.GetComponent<SpikeBallController>();
+        // disable spike ball collisions for bried duration
         spikeBallController.DisableCollision(shooterCollider, collisionCancelTime);
-
+        // fadeout and delete spikeball after some duration
         spikeBallController.FadeOut(spikeBallExistDuration, spikeBallFadeDuration);
 
 

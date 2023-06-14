@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+//https://www.youtube.com/watch?v=Uv5tfMSKlnU&list=PLrnPJCHvNZuCVTz6lvhR81nnaf1a-b67U&index=3
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform player;
@@ -45,6 +47,7 @@ public class CameraController : MonoBehaviour
 
         if (!isShaking && !isFrozen)
         {
+            // position lock camera
             transform.position = new Vector3(player.position.x, Mathf.Max(player.position.y, cameraYMin), transform.position.z);
         }
     }

@@ -23,8 +23,12 @@ public class SpikeBallController : MonoBehaviour
     {
         if (disableCollision)
         {
+            // spike ball has been flagged to disable collisions
+
+            // decrement collision disable time
             collisionDisableTime -= Time.deltaTime;
 
+            // once time has reached 0, reenable collisions
             if (collisionDisableTime < 0)
             {
                 Physics2D.IgnoreCollision(ballCollider, shooterCollider, false);
@@ -35,19 +39,28 @@ public class SpikeBallController : MonoBehaviour
 
     public void DisableCollision(UnityEngine.Collider2D collision, float duration)
     {
+        // set collision disable time and shooter collision and ball collision
         collisionDisableTime = duration;
         shooterCollider = collision;
         ballCollider = GetComponent<Collider2D>();
+
+        // flag to disable collisions
         disableCollision = true;
+
+        // disable collisions between shooter and spikeball
         Physics2D.IgnoreCollision(ballCollider, shooterCollider, true);
     }
 
     public void FadeOut(float wait, float fade)
     {
+        // get sprite renderer
         spriteRenderer = GetComponent<SpriteRenderer>();
+        // get initial color
         initialColor = spriteRenderer.color;
+        // set wait and fade durations
         waitDuration = wait;
         fadeDuration = fade;
+        // start fade out routine
         StartCoroutine(FadeOutCoroutine());
     }
 
@@ -60,9 +73,12 @@ public class SpikeBallController : MonoBehaviour
         float elapsedTime = 0f;
         while (elapsedTime < fadeDuration)
         {
+            // reduce alpha with Lerp
             float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
+            // set new alpha
             spriteRenderer.color = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
 
+            // increment elapsed time
             elapsedTime += Time.deltaTime;
             yield return null;
         }
