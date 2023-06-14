@@ -7,6 +7,8 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform player;
     [SerializeField] private float cameraYMin;
+    [SerializeField] private float cameraXMin;
+    [SerializeField] private float cameraXMax;
     
     public float freezeDuration = 0.5f;
     public float shakeDuration = 0.1f;
@@ -48,7 +50,7 @@ public class CameraController : MonoBehaviour
         if (!isShaking && !isFrozen)
         {
             // position lock camera
-            transform.position = new Vector3(player.position.x, Mathf.Max(player.position.y, cameraYMin), transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(player.position.x, cameraXMin, cameraXMax), Mathf.Max(player.position.y, cameraYMin), transform.position.z);
         }
     }
 
