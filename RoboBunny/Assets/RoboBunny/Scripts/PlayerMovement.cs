@@ -254,8 +254,7 @@ public class PlayerController : MonoBehaviour
     {
         if (pogoInput)
         {
-            dust.Play();
-            // anim.SetTrigger("DoubleJump");
+            anim.SetTrigger("Attack");
             StartCoroutine(PogoRoutine());
         }
 
@@ -295,10 +294,12 @@ public class PlayerController : MonoBehaviour
     void PogoJump()
     {
         // tr.emitting = true;
+        dust.Play();
         cameraController.FreezeScreen();
         rb.velocity = new Vector2(rb.velocity.x, pogoForce);
         extraJumps = extraJumpsValue;
         canDash = true;
+        cameraController.ShakeScreen();
     }
 
     private IEnumerator DashRoutine()
@@ -418,7 +419,14 @@ public class PlayerController : MonoBehaviour
     }
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = new Color(1f, 0.92f, 0.016f, 0.5f);
+        if (pogoActive)
+        {
+            Gizmos.color = Color.red;
+        }
+        else
+        {
+            Gizmos.color = new Color(1f, 0.92f, 0.016f, 0.5f);
+        }
         Gizmos.DrawCube(pogoCheckPoint.position, pogoCheckSize);
         Gizmos.color = Color.blue;
         Gizmos.DrawCube(groundCheckPoint.position, groundCheckSize);
