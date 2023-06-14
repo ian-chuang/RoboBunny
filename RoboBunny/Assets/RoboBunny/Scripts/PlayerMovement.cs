@@ -83,6 +83,9 @@ public class PlayerController : MonoBehaviour
     [Header("For Health")]
     [SerializeField] int maxHealth = 3;
     private int currentHealth;
+    [SerializeField] GameObject firstHeart;
+    [SerializeField] GameObject secondHeart;
+    [SerializeField] GameObject thirdHeart;
 
     [Header("Other")]
     [SerializeField] Animator anim;
@@ -99,6 +102,11 @@ public class PlayerController : MonoBehaviour
 
         // set health
         currentHealth = maxHealth;
+
+        // For displaying UI
+        firstHeart.SetActive(true);
+        secondHeart.SetActive(true);
+        thirdHeart.SetActive(true);
     }
 
     private void Update()
@@ -454,6 +462,9 @@ public class PlayerController : MonoBehaviour
         {
             // died
 
+            // remove last heart
+            firstHeart.SetActive(false);
+
             // disable script
             enabled = false;
             // flag is Dead
@@ -463,6 +474,15 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            // remove life for each hit
+            if (currentHealth == 2)
+            {
+                thirdHeart.SetActive(false);
+            }
+            else if (currentHealth == 1)
+            {
+                secondHeart.SetActive(false);
+            }
             // start hit routine
             StartCoroutine(HitRoutine());
         }
