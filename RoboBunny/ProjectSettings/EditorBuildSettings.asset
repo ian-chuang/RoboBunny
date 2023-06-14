@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/RoboBunny/Scenes/Scene4.unity
     guid: 9ee7d18f9abb0e84dba37278f3be7364
+  - enabled: 1
+    path: Assets/RoboBunny/Scenes/Level1.unity
+    guid: b14ee3eef6f72416587d17a2736677b9
+  - enabled: 1
+    path: Assets/RoboBunny/Scenes/Level0.unity
+    guid: c931727deb32140d790d34e0f99a5d7b
   m_configObjects: {}

@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviour
         // store components
         rb = GetComponent<Rigidbody2D>();
         cameraController = Camera.main.GetComponent<CameraController>();
+        tr.emitting = false;
 
         // set health
         currentHealth = maxHealth;
