@@ -238,7 +238,7 @@ I created a [trailer](https://drive.google.com/file/d/1qDPHVOmNPxSrldNZmfdx_WIIq
 
 **Document what you added to and how you tweaked your game to improve its game feel.**
 
-### Ian - Game Feel
+### Ian
 
 *Coyote Time* - I implemented the feature Coyote Time using [this video as reference](https://www.youtube.com/watch?v=RFix_Kg2Di0). Coyote Time gives the player a brief duration to jump after it has left a platform and is not grounded. This is valuable for game feel because if a player is moving quickly, jumping from platform to platform, Coyote Time gives more leeway to the player on timing jumps and results in a less frustrating experience. To implement Coyote Time, I have a timer counter that resets when the player is grounded and decrements when the player is in the air. Using this counter, I allow the player to jump so long as the timer hasn't run out of time. 
 
@@ -257,6 +257,8 @@ I created a [trailer](https://drive.google.com/file/d/1qDPHVOmNPxSrldNZmfdx_WIIq
 *Hurt/Damaged Mechanic* - When the player gets hurt by a trap, I wanted the user to really feel the effects of this event. In addition to playing a "hurt" animation, I added a feature so that the player would be knocked back by whatever it was hit with. I also didn't want the user to be able to move the player for a brief duration after being hit to emphasize the hit knockback. I also added a hit cooldown where the player won't take damage for a brief period after being hit to help out the player in case they were in an area with many traps around them. When the player is hit, I would start a coroutine that would set a knockback velocity in the direction opposite to the trap. In the coroutine, I had a hit duration for which the user can not control the player and a hit cooldown for where the player cannot take damage for a brief duration. 
 
 ![Hurt](https://github.com/ian-chuang/RoboFroggy/blob/main/media/Hurt.gif)
+
+### Jacob
 
 *Screen Freeze & Shake* - I added to the `CameraController` script to include the ability to momentarily "freeze" time and shake the screen. For this, I employed the help of ChatGPT. This works by setting `Time.timeScale` to `0` for a split second. The amount of time the screen freezes and the magnitude of the screen shake can be changed in the Inspector. I set the screen freeze and shake to occur the moment the player successfully pogo jumps as well as upon taking damage. I think this effect adds a lot to the impact of these events while playing the game.
 
