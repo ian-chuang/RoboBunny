@@ -207,11 +207,13 @@ Christian - I had interviewed a variety of people going from people who lots of 
 
 ## Narrative Design
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+### Jacob
+Unfortunately, due to time constraints, we weren't able to have much of a narrative. But [here is a link to the game design design document]([url](https://www.figma.com/file/KN2d0mevoSnULkFggCLRlO/Bunny-Game-Design-Doc?type=design&node-id=0%3A1&t=5E5ucLoHHEkzUZe8-1)) that shows what our game's narrative _would have_ been if we had more time.
 
 ## Press Kit and Trailer
 
-**Include links to your presskit materials and trailer.**
+### Jacob
+I created a [trailer]([url](https://drive.google.com/file/d/1qDPHVOmNPxSrldNZmfdx_WIIqfr9TMZX/view?usp=sharing)) for RoboFroggy. Press kit coming soon...
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 
