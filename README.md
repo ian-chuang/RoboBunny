@@ -121,9 +121,9 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 *Particle Effects* - I created a particle system following [this tutorial](https://www.youtube.com/watch?v=1CXVbCbqKyg). I configured the particles to look like a burst of dust in the inspector and then passed a reference to the particle system in the `PlayerMovement` script. I then triggered the particle system when the player switches directions, when they jump, and when they dash on the ground. Since the particle system is a child of the player prefab, the different positions and velocities of the player in each of these scenarios produces a unique effect each time the particle system plays.
 
-![Particle1|300](https://github.com/ian-chuang/RoboFroggy/blob/main/media/particles1.gif)
+![Particle1](https://github.com/ian-chuang/RoboFroggy/blob/main/media/particles1.gif)
 
-![Particle2|300](https://github.com/ian-chuang/RoboFroggy/blob/main/media/particles2.gif)
+![Particle2](https://github.com/ian-chuang/RoboFroggy/blob/main/media/particles2.gif)
 
 ## Input
 
