@@ -221,9 +221,14 @@ Christian - I had interviewed a variety of people going from people who lots of 
 - One implemented level was a cave level like the one shown here. This level was intentinoally created with walls, less space, and a darker background to give the claustrophobic feeling of being inside a cave.
 ![Level3](https://github.com/ian-chuang/RoboFroggy/blob/main/media/Level3p1.png)
 
+### Jacob
+Unfortunately, due to time constraints, we weren't able to add too much of a direct narrative. But [here is a link to the game design design document](https://www.figma.com/file/KN2d0mevoSnULkFggCLRlO/Bunny-Game-Design-Doc?type=design&node-id=0%3A1&t=5E5ucLoHHEkzUZe8-1) that shows what our game's narrative _would have_ been if we had more time.
+
+
 ## Press Kit and Trailer
 
-**Include links to your presskit materials and trailer.**
+### Jacob
+I created a [trailer](https://drive.google.com/file/d/1qDPHVOmNPxSrldNZmfdx_WIIqfr9TMZX/view?usp=sharing) for RoboFroggy. Press kit coming soon...
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 
