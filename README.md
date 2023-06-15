@@ -164,6 +164,14 @@ _Potential Controller Input_ - There were plans to make controller support, but 
 
 ![OutOfBounds](https://github.com/ian-chuang/RoboFroggy/blob/main/media/OutOfBounds.gif)
 
+### Andrew - Game Logic
+
+*Camera Controller Logic* - While I didn't directly implement the code for the game logic, I brought up ideas for using different camera positions from our homework exercises for the game. Unforutnately, we were unable to implement the different camera and stayed with essentially a position locked camera though the changing camera lock could be a topic for future development of this game.
+
+*Player Tutorial* - One important aspect of making sure the game logic was clear to see and understand is to have a tutorial in game. I drew upon a tutorial we used from our `MetriodvaniaController`(see below) to help create a in game tutorial for the player controls. This lead to(shown in the later picture) a tutorial similar to this one in our current game in the level `Scene0`
+
+![Tutorial Inspiration](https://github.com/ian-chuang/RoboFroggy/blob/main/media/Tutorial.png)
+![Game Tutorial](https://github.com/ian-chuang/RoboFroggy/blob/main/media/Tutorial.png)
 **Document what game states and game data you managed and what design patterns you used to complete your task.**
 
 # Sub-Roles
@@ -205,9 +213,13 @@ Christian - I had interviewed a variety of people going from people who lots of 
 - The input had a surprisingly good feedback, as most participants had enjoyed the butter smooth movement of RoboFroggy.
 - A small gripe was that maybe the frog felt as if it was going too fast. This to the player making mistakes.
 
-## Narrative Design
+## Andrew - Narrative Design
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+- The game follows the basic general narrative of a platformer. It contains the common elements of double jumping, dashing, and wall jumping that is common to most platformers.
+- The starting levels have a basic grassyland setting that follows the nostalgia of starting a mario game. As such, it gives the feeling of a beginner, tutorial world that is meant ot help players get into the game. 
+- Later levels such as the climbing ones intentionally have less elements built in in order to give the open feeling of being in the sky for a sense of freedom yet fear of the prospect of falling down.
+- One implemented level was a cave level like the one shown here. This level was intentinoally created with walls, less space, and a darker background to give the claustrophobic feeling of being inside a cave.
+![Level3](https://github.com/ian-chuang/RoboFroggy/blob/main/media/Level3p1.png)
 
 ## Press Kit and Trailer
 
